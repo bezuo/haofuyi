@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> <!-- 规定视口区域大小为1:1且不允许缩放 -->
+<meta name="apple-mobile-web-app-capable" content="yes"> <!-- IOS中Safari允许全屏浏览 -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- IOS中Safari顶端状态条样式 -->
+<meta content="telephone=no, address=no" name="format-detection"> <!-- 忽略IOS操作系统将五位或以上位数的数字识别成电话号码 -->
+<meta name="author" content="BeZuo">
+<title>福利平台</title>
+<link rel="Shortcut Icon" href="images/favicon.ico" />
+<!-- 用于浏览器默认样式重置 start -->
+<link type="text/css" rel="stylesheet" href="style/base.min.css" />
+<!-- 用于浏览器默认样式重置 end -->
+
+<!-- 页面模块样式 start -->
+<link type="text/css" rel="stylesheet" href="style/layout.min.css" />
+<!-- 页面模块样式 end -->
+
+<!-- 页面下拉加载动效 start -->
+<link rel="stylesheet" type="text/css" href="style/gmu.min.css" />
+<!-- 页面下拉加载动效 end -->
+
+<!-- 页面下拉加载动效 start -->
+<link rel="stylesheet" type="text/css" href="style/loading.min.css" />
+<!-- 页面下拉加载动效 end -->
+</head>
+
+<body class="bg01">
+<section>
+	<!-- header start -->
+	<header class="user-header">
+		<a href="javascript: history.back();" class="fn-left iconfont page-back02"></a>
+		<h1>充值</h1>
+	</header>
+
+	<!-- article start -->
+	<article class="recharge-container">
+		<div class="recharge-box">
+			<from action="">
+				<input type="text" placeholder="输入兑换密码" class="recharge-text" />
+
+				<button class="recharge-btn">立即充值</button>
+			</from>
+		</div>
+	</article>
+	<!-- / article end -->
+
+</section>
+
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/base.min.js"></script>
+<script type="text/javascript">
+	// 验证码输入自动将其格式化
+	$(".recharge-text").on("keyup", formatBC);
+  
+    function formatBC(e){
+  
+      $(this).attr("data-oral", $(this).val().replace(/\ +/g,""));
+      //$("#bankCard").attr("data-oral")获取未格式化的卡号
+  
+      var self = $.trim(e.target.value);
+      console.log(self +"self!");
+      console.log(this.value)
+      var temp = this.value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
+      if(self.length > 13){
+        this.value = self.substr(0, 13);
+        return this.value;
+      }
+      if(temp != this.value){
+        this.value = temp;
+      }
+    }
+</script>
+</body>
+</html>
