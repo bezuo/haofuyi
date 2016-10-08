@@ -43,6 +43,23 @@
 				<button class="recharge-btn">立即充值</button>
 			</from>
 		</div>
+		
+		<!-- success tip start -->
+		<section class="recharge-success">
+			<div class="recharge-money-box">
+				<p>充值成功</p>
+				<div class="money-content">
+					<span>现金券</span>
+					<em>¥50.00</em>
+				</div>
+			</div>
+
+			<div class="money-btm">
+				<p>现金券50元已存放在您的账号中可全场使用</p>
+				<button class="money-use">立即使用</button>
+			</div>
+		</section>
+		<!-- / success tip end -->
 	</article>
 	<!-- / article end -->
 
@@ -60,11 +77,9 @@
       //$("#bankCard").attr("data-oral")获取未格式化的卡号
   
       var self = $.trim(e.target.value);
-      console.log(self +"self!");
-      console.log(this.value)
-      var temp = this.value.replace(/\D/g, '').replace(/(....)(?=.)/g, '$1 ');
-      if(self.length > 13){
-        this.value = self.substr(0, 13);
+      var temp = this.value.replace(/[^a-z0-9A-Z]/g, '').replace(/(...)(?=.)/g, '$1 ');
+      if(self.length > 14){
+        this.value = self.substr(0, 14);
         return this.value;
       }
       if(temp != this.value){
